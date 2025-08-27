@@ -4,22 +4,25 @@ import { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Image, Pressable } from 'react-native';
 
 const LoginScreen = () => {
-  const [lembrar, setLembrar] = useState(false);
+  const [lembrar, setLembrar] = useState(false); //Habilitar e desabilitar o checkbox
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Acesse</Text>
       <Text style={styles.info}>com E-mail e senha</Text>
+    // Campo de E-mail
       <Text style={{ fontSize: 16 }}>E-mail</Text>
       <TextInput
         style={styles.input}
         placeholder="Digite seu E-mail"
       />
+    // Campo de Senha
       <Text style={{ fontSize: 16 }}>Senha</Text>
       <TextInput
         style={styles.input}
         placeholder="Digite sua senha"
         secureTextEntry
       />
+      // Botões Acessar e Cadastrar
       <View style={styles.buttonContainer}>
       <TouchableOpacity style={styles.buttonLogin}>
         <Text style={{ color: '#FFFFFF' }}>Acessar</Text>
@@ -29,15 +32,20 @@ const LoginScreen = () => {
         <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
       </View>
+      // Link Esqueci minha senha e checkbox Lembrar senha
       <View style={styles.linkContainer}>
+        //Checkbox e texto Lembrar senha
     <Pressable style={styles.forgetContainer} onPress={() => setLembrar(!lembrar)}>
         <View style={[styles.checkbox, lembrar && styles.checkboxMarcado]}>
             {lembrar && <View style={styles.check} />}
         </View>
         <Text style={styles.forgetText}>Lembrar senha</Text>
     </Pressable>
+    //Texto esqueci minha senha
       <Pressable><Text style={styles.link}>Esqueci minha senha</Text></Pressable>
       </View>
+      
+      // Opções de login com Google e Facebook
       <View style={styles.infoContainer}>
       <Text style={styles.info}>Ou continue com</Text>
       </View>
