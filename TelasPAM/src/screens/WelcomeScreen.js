@@ -5,15 +5,17 @@ import { View, Text, Button, Image, StyleSheet, TouchableOpacity } from 'react-n
 
 const WelcomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.greeting}>Ótimo dia!</Text>
+    <View style={styles.main}>
+      // Título de boas-vindas
+      <Text style={styles.boasVindas}>Ótimo dia!</Text>
       <Image
         source={require('../assets/casual_dog.png')} // Substitua pelo caminho da imagem do cão
         style={styles.image}
       />
 
-      <Text style={styles.question}>Como deseja acessar?</Text>
+      <Text style={styles.questao}>Como deseja acessar?</Text>
 
+      // Botão Google
       <TouchableOpacity style={styles.buttonGoogle} onPress={()=>navigation.navigate('Login')}>
         <Image
           source={require('../assets/Google.png')} // Substitua pelo caminho do ícone do Google
@@ -22,33 +24,51 @@ const WelcomeScreen = ({ navigation }) => {
         <Text style={{ color: '#FFFFFF' }}>Continuar com Google</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonOptions}>
+      // Botão outras opções
+      <TouchableOpacity style={styles.buttonOptions} onPress={()=>navigation.navigate('Login')}>
         <Text style={{ color: '#000000' }}>Outras opções</Text>
       </TouchableOpacity>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  main: {
     flex: 1,
     backgroundColor: '#FFFFFF', // Cor de fundo
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
   },
+
   image: {
     width: '100%',
     height: '35%'
   },
-  greeting: {
+
+  boasVindas: {
     fontSize: 24,
     color: '#000000',
   },
-  question: {
+
+  questao: {
     fontSize: 18,
     color: '#000000',
   },
+
+  buttonGoogle: {
+    backgroundColor: '#25A45D',
+    padding: 15,
+    borderRadius: 5,
+    width: '80%',
+    alignItems: 'center',
+    marginTop: 10,
+    color: '#FFFFFF',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
+
   buttonOptions: {
     marginTop: 10,
     padding: 15,
@@ -59,19 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#FFFFFF'
   },
-  buttonGoogle: {
-    backgroundColor: '#25A45D',
-    padding: 15,
-    borderRadius: 5,
-    width: '80%',
-    alignItems: 'center',
-    marginTop: 10,
-    color: '#FFFFFF',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    
-    
-  },
+
 });
 
 export default WelcomeScreen;
